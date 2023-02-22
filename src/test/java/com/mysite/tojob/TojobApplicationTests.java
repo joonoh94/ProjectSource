@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.mysite.tojob.question.Question;
 import com.mysite.tojob.question.QuestionRepository;
+import com.mysite.tojob.question.QuestionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,14 +14,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(classes = TojobApplication.class)
 class TojobApplicationTests {
 
-    @Autowired  //Dependency Injection 기능으로 questionRepository 객체를 스프링이 자동으로 생성
-    private QuestionRepository questionRepository;
+    @Autowired
+    private QuestionService questionService;
 
     @Test
     void testJpa() {
-        Question q = this.questionRepository.findBySubjectAndContent(
-                "sbb가 무엇인가요?", "sbb에 대해서 알고 싶습니다.");
-        assertEquals(1, q.getId());
+        for (int i = 1; i <= 300; i++) {
+            String subject = String.format("테스트 데이터입니다:[%03d]", i);
+            String content = "내용무";
+            this.questionService.create(subject, content);
+        }
     }
 }
 //db내 컬럼 등록

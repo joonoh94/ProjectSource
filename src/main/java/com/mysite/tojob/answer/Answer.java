@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import jakarta.persistence.ManyToOne;
 import org.springframework.data.annotation.CreatedDate;
 
-@SpringBootApplication(exclude={SecurityAutoConfiguration.class})
+//@SpringBootApplication(exclude={SecurityAutoConfiguration.class})
 @Getter
 @Setter
 @Entity

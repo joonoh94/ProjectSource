@@ -19,13 +19,17 @@ repositories {
 }
 
 dependencies {
+    //스프링 시큐리티 및 관련 타임리프 라이브러리
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'
+    //스프링 웹 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    //롬북 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    //스프링부트 테스트
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
     //서버 재시작 없이 클랙스 변경 내용 적용
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     //H2 데이터베이스 (개발 후 MySql로 변경 예정)
@@ -35,6 +39,8 @@ dependencies {
     //타임리프
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    //화면에서 전달받은 입력 값 검증 라이브러리(Spring Boot Validation)
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 tasks.named('test') {
