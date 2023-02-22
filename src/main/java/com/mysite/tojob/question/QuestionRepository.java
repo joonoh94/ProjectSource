@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * QnA 관련 DAO
+ * QnA 관련 레파지토리(DAO)
  *
  * @author joonoh
  * @since 2023.02.22

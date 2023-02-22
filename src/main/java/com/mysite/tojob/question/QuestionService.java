@@ -1,16 +1,21 @@
 package com.mysite.tojob.question;
 
+import com.mysite.tojob.DataNotFoundException;
+import com.mysite.tojob.user.SiteUser;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import com.mysite.tojob.DataNotFoundException;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
 
 /**
  * QnA 관련 서비스 인터페이스
@@ -55,11 +60,12 @@ public class QuestionService {
      * @return form
      * @exception -
      */
-    public void create(String subject, String content) {
+    public void create(String subject, String content, SiteUser user) {
         Question q = new Question();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
+        q.setAuthor(user);
         this.questionRepository.save(q);
     }
 
